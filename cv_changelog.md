@@ -12,3 +12,14 @@ Running log of updates to `akanksha_cv.tex`.
   - Preamble was rebuilt from scratch (original lost); layout is close but not pixel-identical.
   - Kept the existing CV's own date style (`'YY`) and abbreviations (CMU, SCS, UPitt) for faithful reproduction; future *new* entries will follow the cv-update skill conventions.
 - **Backlog**: All current talks/posters marked resolved ✓ in the top-of-file backlog block.
+- **Compiler**: MacTeX's `.pkg` needed sudo and couldn't be installed non-interactively, so TinyTeX (user-space TeX Live) was installed instead. Required packages pulled via `tlmgr`: moderncv, pgf/tikz, fontawesome5, lmodern, cm-super, enumitem, fancyhdr, lastpage, multirow, arydshln.
+- **TeX fixes for compilation**: defined legacy `\sl` (moderncv omits it), loaded `lmodern` (microtype font-expansion needs scalable fonts), and built the header with `\shortstack` so name / subtitle / links stack like the original.
+
+### Build command
+
+```sh
+export PATH="$PATH:$HOME/Library/TinyTeX/bin/universal-darwin"
+cd ~/naksha-cv
+pdflatex -interaction=nonstopmode -halt-on-error akanksha_cv.tex   # pass 1
+pdflatex -interaction=nonstopmode -halt-on-error akanksha_cv.tex   # pass 2 (for "Page X of Y")
+```
