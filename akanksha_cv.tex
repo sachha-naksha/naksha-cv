@@ -37,6 +37,7 @@
 \moderncvcolor{purple}
 
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 \usepackage[scale=0.86]{geometry}
 \usepackage{enumitem}
@@ -45,19 +46,27 @@
 
 \setlist[itemize]{leftmargin=1.4em, itemsep=1pt, parsep=0pt, topsep=2pt, partopsep=0pt}
 
+% moderncv (a custom class) does not provide the legacy two-letter font
+% switches, but the cv-update convention uses \hfill{\sl \small ...} for
+% right-aligned metadata. Define it so that pattern keeps compiling.
+\providecommand{\sl}{\slshape}
+
 % "Page X of Y" footer to mirror the original CV.
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
 \name{Akanksha}{Sachan}
-\title{Computational Biology, CMU-UPitt}
-\extrainfo{%
+\title{}
+% Subtitle on its own line + the links line, both below the (large) name,
+% to mirror the original CV header layout.
+\extrainfo{\shortstack{%
+  Computational Biology, CMU-UPitt\\[2pt]
   \href{mailto:aks203@pitt.edu}{aks203@pitt.edu} \enspace$\mid$\enspace
   LinkedIn \enspace$\mid$\enspace
   Twitter \enspace$\mid$\enspace
   \href{https://github.com/sachha-naksha}{Github} \enspace$\mid$\enspace
   Google Scholar%
-}
+}}
 
 \begin{document}
 
