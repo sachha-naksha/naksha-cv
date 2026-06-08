@@ -50,10 +50,17 @@
 
 % Section label hanging in the left margin: small caps, purple, top-aligned with
 % the first content line, left-justified (wraps within \cvlabelw if long).
+% The label is wrapped in \raisebox{0pt}[\height][0pt]{...} so it keeps its
+% HEIGHT (won't crash into the section above) but reports ZERO DEPTH. Without
+% this, a label that wraps to 2-3 lines (e.g. "Leadership & Societal
+% Contributions") pushes the first content line down by its full height, leaving
+% a huge gap before the content when the heading itself is short. Zero depth lets
+% the content flow normally beside the label, which simply extends into the margin.
 \newcommand{\cvsection}[1]{%
   \par\addvspace{1.4ex}\needspace{3\baselineskip}%
-  \noindent\llap{\parbox[t]{\cvlabelw}{\raggedright\normalfont\scshape\bfseries
-    \textcolor{sectionpurple}{#1}}\hspace{\cvlabelsep}}%
+  \noindent\llap{\raisebox{0pt}[\height][0pt]{%
+    \parbox[t]{\cvlabelw}{\raggedright\normalfont\scshape\bfseries
+      \textcolor{sectionpurple}{#1}}}\hspace{\cvlabelsep}}%
   \nopagebreak\ignorespaces}
 
 % One entry: left content (wraps freely) with the date pinned to the top-right.
@@ -67,6 +74,17 @@
 \newcommand{\dates}[1]{\hfill{\small\textsl{#1}}}
 
 \setlist[itemize]{leftmargin=1.3em, itemsep=0pt, parsep=1pt, topsep=2pt, partopsep=0pt}
+
+% Bullet list for experience-style entries (heading + points). Use it in place
+% of itemize right after an \entry. The spacing is STRUCTURAL, so cutting bullet
+% text can never reopen the gap bug:
+%   before=\nointerlineskip  cancels the variable baseline glue that \entry's
+%     \parbox[t] injects (1-line headings sat far from bullets, 2-line ones on
+%     top of them) -> heading always binds tightly, no marker needed.
+%   after=\addvspace{7pt}    gives an even separation before the next entry.
+\newlist{roleitems}{itemize}{1}
+\setlist[roleitems]{label=$\bullet$, leftmargin=1.3em, itemsep=1pt, parsep=0pt,
+  topsep=2pt, partopsep=0pt, before=\nointerlineskip, after=\addvspace{7pt}}
 
 % "Page X of Y" footer, mirroring the original CV.
 \pagestyle{fancy}\fancyhf{}
@@ -124,11 +142,11 @@ Comp-Bio Department, School of Computer Science $\mid$ GPA: 3.58/4}{'22 -- '24}
 \cvsection{Invited Talks}%
 \textbf{``FIREFate: Functional and Interpretable Regulatory Encodings of cell Fate''} $\mid$ \emph{paper-in-prep}
 \begin{itemize}[label={},leftmargin=0pt]
+  \item Keystone Symposia: Artificial Intelligence in Molecular Biology\dates{Sep '25}
   \item International Society for Computational Biology (ISCB)/(ISMB) \dates{Jul '25, '26}
   \item American Association of Immunologists (AAI) Annual Meeting 2026\dates{Apr '26}
   \item Center of Lung Aging and Regeneration, School of Medicine, UPitt\dates{Nov '25}
   \item 30th Annual School of Medicine Graduate Student Research Symposium, UPitt\dates{Oct '25}
-  \item Keystone Symposia: AI in Molecular Biology\dates{Sep '25}
   \item Joint CMU-UPitt Ph.D.\ Program in Computational Biology, Orientation Retreat\dates{Aug '25}
 \end{itemize}
 
@@ -139,63 +157,62 @@ Comp-Bio Department, School of Computer Science $\mid$ GPA: 3.58/4}{'22 -- '24}
   \item Aging Institute Research Day, UPitt\dates{Nov '24}
 \end{itemize}
 
-\textbf{``Micro-MPA digital twin, with sclerostin-dependent RANKL production reproduces pivotal dual-action effect of romosozumab found in clinical trials''} $\mid$ \emph{Publication}
+\textbf{``Micro-MPA digital twin, with sclerostin-dependent RANKL production reproduces pivotal dual-action effect of romosozumab found in clinical trials''}
 \begin{itemize}[label={},leftmargin=0pt]
   \item 50th European Calcified Tissue Society (ECTS) Congress\dates{Apr '23}
 \end{itemize}
 
 %% --- athletics --------------------------------------------------------------
 \cvsection{Athletic Accolades}%
+\vspace{-2\baselineskip}% list-first section: lift bullets up to align with the margin label
 \begin{itemize}[label={},leftmargin=0pt]
-  \item \textbf{Bronze Medal} $\mid$ 35th Intercollegiate (inter-IIT) Aquatics Meet $\mid$ 3rd position in Medley-Relay\dates{'19}
+  \item \textbf{Bronze Medal} $\mid$ 35th Intercollegiate (inter-IIT) Aquatics Meet $\mid$ 3rd in Medley-Relay\dates{'19}
+  \item \textbf{3rd Position} $\mid$ Comp-Bio Department, Pretty Good Race (5km) for SCS, CMU\dates{'23}
   \item \textbf{Swam 12-hours} $\mid$ Swimathon organized by the IIT Bombay aquatics committee\dates{'19}
   \item \textbf{Ran 26.2 miles} $\mid$ Dick's Sporting Goods Pittsburgh Marathon $\mid$ 5 hours 15 mins\dates{'24}
   \item \textbf{Ran 13.1 miles} $\mid$ Dick's Sporting Goods Pittsburgh Half Marathon $\mid$ 2 hours 30 mins\dates{'23}
-  \item \textbf{3rd Position} $\mid$ Computational Biology Department, Pretty Good Race (5km) for SCS, CMU\dates{'23}
 \end{itemize}
 
 %% --- leadership -------------------------------------------------------------
 \cvsection{Leadership \& Societal Contributions}%
 \entry{\textbf{Vice President} $\mid$ \emph{Allegheny Science Policy and Governance (ASPG)}}{Aug '25 -- Present}
-\begin{itemize}
-  \item Leading a graduate-student organization (recognized chapter of the \textbf{National Science Policy Network}) bridging the advocacy gap between scientists and policy-makers
-  \item Organized panel discussions with Representatives \& Day on the State Capital Hill, Harrisburg, PA for interactions with Senators and discussions on policies for \textbf{AI/Data Centers and Aging}
-\end{itemize}
+\begin{roleitems}
+  \item Leading a recognized chapter of the \textbf{National Science Policy Network}
+  \item Bridged scientists and PA legislators on \textbf{AI/data-center and aging policy} \\ by organizing discussions at the State Capitol, Harrisburg, PA
+\end{roleitems}
 
 \entry{\textbf{Teaching Assistant} $\mid$ \emph{02-760: Lab Methods for Computational Biologists, SCS, CMU}}{Fall '23 -- Spring '24}
-\begin{itemize}
+\begin{roleitems}
   \item Taught a lecture on \textbf{genomics technologies} and gene regulation to a class of around 20 students
-  \item Revamped a module of the course based on \textbf{RNA-sequencing} analysis of mouse cell lines
-\end{itemize}
+\end{roleitems}
 
 \entry{\textbf{Coordinator} $\mid$ \emph{Technights, Carnegie Mellon University}, Robotics Institute}{Aug '23 -- Aug '25}
-\begin{itemize}
-  \item Led a \textbf{computer-science outreach} program teaching middle-school girls technical concepts
-  \item Developed and taught sessions on data analysis, foundation models, and deep learning
-\end{itemize}
+\begin{roleitems}
+  \item Led a \textbf{computer-science outreach} program teaching middle-school girls technical sessions on data analysis, foundation models, and deep learning
+\end{roleitems}
 
 \entry{\textbf{Team Lead} $\mid$ \emph{4D Nucleome Consortium Hackathon}, Seattle, Washington}{Mar '24}
-\begin{itemize}
+\begin{roleitems}
   \item Led a team of 5 during the hackathon to create integrative pipelines for \textbf{single-cell HiC} data analysis using deep-learning tools and publicly available cell-atlas scale datasets
   \item Delivered a 30-minute presentation to showcase results to consortium researchers
-\end{itemize}
+\end{roleitems}
 
 \entry{\textbf{Treasurer} $\bullet$ \textbf{Senator} $\mid$ \emph{Graduate Student Association, (CPCB GSA)}}{Aug '23 -- Aug '25}
-\begin{itemize}
+\begin{roleitems}
   \item Managed a budget of \textbf{\$5,121} and tracked spending spanning both CMU and UPitt GSA events
   \item Organized the 2024 open-house event for visiting prospective students admitted to CPCB
-\end{itemize}
+\end{roleitems}
 
 \entry{\textbf{Editorial Board Member} $\bullet$ \textbf{Design Convenor} $\mid$ \emph{Insight, the student newsletter of IIT Bombay}}{'19 -- '21}
-\begin{itemize}
+\begin{roleitems}
   \item Sketched \& Illustrated \textbf{1 Flagship} \& \textbf{1 Special Edition} \textbf{Magazine Cover}, and a merch t-shirt
   \item Editorial Board member ('20-'21): contributed to editorial oversight and article curation
-\end{itemize}
+\end{roleitems}
 
 \entry{\textbf{Convenor, Girls Swim Team} $\mid$ \emph{Aquatics, Indian Institute of Technology Bombay}}{'19 -- '20}
-\begin{itemize}
+\begin{roleitems}
   \item Led logistics, training coordination, and community building events for the institute girls' team
-\end{itemize}
+\end{roleitems}
 
 %% --- consortiums ------------------------------------------------------------
 \cvsection{Consortiums \& Workshops}%
