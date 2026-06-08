@@ -81,11 +81,13 @@
 % subtitle line sits beneath; then roman detail. All three live in one parbox,
 % so they are single-spaced with no inter-paragraph gaps -- exactly Deepak's
 % look. Pass {} for an absent subtitle or detail. The detail may contain \\ to
-% break into multiple lines. A trailing \addvspace separates successive entries;
-% because the gap is placed AFTER each entry, the first entry in a section still
-% hugs the margin label and there is no between-entries marker to delete.
+% break into multiple lines. A trailing \addvspace separates successive entries.
+% There is deliberately NO leading \par: the first entry MUST stay on the same
+% line \cvsection opened so its text sits level with the hanging margin label
+% (a leading \par closes an empty line holding only the label, dropping the first
+% entry a line below the header). Between entries the preceding entry's closing
+% \par\addvspace already opened a fresh paragraph, so none is needed here either.
 \newcommand{\expentry}[4]{%
-  \par
   \parbox[t]{\dimexpr\linewidth-\cvdatew-\cvlabelsep\relax}{\raggedright
     \textbf{#1}%
     \ifx\relax#3\relax\else\\[1.5pt]\textsl{#3}\fi
@@ -165,7 +167,7 @@ Comp-Bio Department, School of Computer Science $\mid$ GPA: 3.58/4}{'22 -- '24}
   \item Aging Institute Research Day, UPitt\dates{Nov '24}
 \end{itemize}
 
-\textbf{``Micro-MPA digital twin, with sclerostin-dependent RANKL production reproduces pivotal dual-action effect of romosozumab found in clinical trials''}
+\textbf{``Micro-MPA digital twin, with sclerostin-dependent RANKL production \\ reproduces pivotal dual-action effect of romosozumab found in clinical trials''}
 \begin{itemize}[label={},leftmargin=0pt]
   \item 50th European Calcified Tissue Society (ECTS) Congress\dates{Apr '23}
 \end{itemize}
@@ -185,7 +187,7 @@ Comp-Bio Department, School of Computer Science $\mid$ GPA: 3.58/4}{'22 -- '24}
 \cvsection{Leadership \& Societal Contributions}%
 \expentry{Vice President}{Aug '25 -- Present}
   {Allegheny Science Policy and Governance (ASPG)}
-  {Leading a recognized chapter of the \textbf{National Science Policy Network}; bridged scientists and PA legislators on \textbf{AI/data-center and aging policy} at the State Capitol, Harrisburg.}
+  {Leading a recognized chapter of the \textbf{National Science Policy Network}; bridged scientists and PA legislators on policies about \textbf{AI/data-centers and Aging} at the State Capitol, Harrisburg.}
 
 \expentry{Teaching Assistant}{Fall '23 -- Spring '24}
   {02-760: Lab Methods for Computational Biologists, SCS, CMU}
