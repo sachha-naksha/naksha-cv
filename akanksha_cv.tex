@@ -57,7 +57,7 @@
 % a huge gap before the content when the heading itself is short. Zero depth lets
 % the content flow normally beside the label, which simply extends into the margin.
 \newcommand{\cvsection}[1]{%
-  \par\addvspace{1.4ex}\needspace{3\baselineskip}%
+  \par\addvspace{1ex}\needspace{3\baselineskip}%
   \noindent\llap{\raisebox{0pt}[\height][0pt]{%
     \parbox[t]{\cvlabelw}{\raggedright\normalfont\scshape\bfseries
       \textcolor{sectionpurple}{#1}}}\hspace{\cvlabelsep}}%
@@ -94,7 +94,7 @@
     \ifx\relax#4\relax\else\\[2pt]#4\fi}%
   \hfill
   \parbox[t]{\cvdatew}{\raggedleft\small\textsl{#2}}%
-  \par\addvspace{6.5pt}}
+  \par\addvspace{5pt}}
 
 % "Page X of Y" footer, mirroring the original CV.
 \pagestyle{fancy}\fancyhf{}
@@ -187,78 +187,74 @@ Comp-Bio Department, School of Computer Science $\mid$ GPA: 3.58/4}{'22 -- '24}
 \cvsection{Leadership \& Societal Contributions}%
 \expentry{Vice President}{Aug '25 -- Present}
   {Allegheny Science Policy and Governance (ASPG)}
-  {Leading a recognized chapter of the \textbf{National Science Policy Network}; bridged scientists and PA legislators on policies about \textbf{AI/data-centers and Aging} at the State Capitol, Harrisburg.}
+  {Leading a recognized chapter of the \textbf{National Science Policy Network} Bridged scientists and PA legislators on policies about \textbf{AI/data-centers and Aging} at the State Capitol, Harrisburg, PA}
+
+\expentry{Technights Coordinator}{Aug '23 -- Aug '25}
+  {Carnegie Mellon University, Robotics Institute}
+  {Organized and led a \textbf{computer-science outreach} program teaching middle-school girls sessions on foundation models, and deep learning.}
+
+\expentry{NIH Consortium Hackathon, Co-organizer \& Team Lead}{Mar '24}
+  {4D Nucleome, Seattle, Washington}
+  {Led a team of 5 to build integrative pipelines for single-cell HiC analysis from cell-atlas-scale datasets}
+
+\expentry{Reviewer}{}%
+  {ICML Foundation Model for Life Sciences Workshop 2026, PNAS Journal (assisted PI), Aging Cell Journal (assisted PI)}{}
 
 \expentry{Teaching Assistant}{Fall '23 -- Spring '24}
   {02-760: Lab Methods for Computational Biologists, SCS, CMU}
-  {Taught a lecture on \textbf{genomics technologies} and gene regulation to a class of $\sim$20 students.}
-
-\expentry{Coordinator}{Aug '23 -- Aug '25}
-  {Technights, Carnegie Mellon University, Robotics Institute}
-  {Led a \textbf{computer-science outreach} program teaching middle-school girls data analysis, foundation models, and deep learning.}
-
-\expentry{Team Lead}{Mar '24}
-  {4D Nucleome Consortium Hackathon, Seattle, Washington}
-  {Led a team of 5 to build integrative pipelines for \textbf{single-cell HiC} analysis from cell-atlas-scale datasets; delivered a 30-minute presentation to consortium researchers.}
+  {Taught a lecture on \textbf{genomics technologies} to a class of $\sim$20 students, revamping the RNA sequencing module of the course.}
 
 \expentry{Treasurer $\bullet$ Senator}{Aug '23 -- Aug '25}
-  {Graduate Student Association (CPCB GSA)}
-  {Managed a \textbf{\$5,121} budget across CMU and UPitt events; organized the 2024 open-house for admitted CPCB students.}
+  {Graduate Student Association (Joint CMU-UPitt Comp-Bio PhD Program)}
 
 \expentry{Editorial Board Member $\bullet$ Design Convenor}{'19 -- '21}
   {Insight, the student newsletter of IIT Bombay}
-  {Sketched \& illustrated \textbf{1 Flagship} \& \textbf{1 Special Edition} magazine cover and a merch t-shirt; contributed editorial oversight and article curation.}
 
 \expentry{Convenor, Girls Swim Team}{'19 -- '20}
   {Aquatics, Indian Institute of Technology Bombay}
-  {Led logistics, training coordination, and community-building events for the institute girls' team.}
 
 %% --- consortiums ------------------------------------------------------------
 \cvsection{Consortiums \& Workshops}%
-\expentry{SenNet Consortium Annual Meeting}{Sep '25}
-  {Cellular Senescence Network, NIH, Washington, DC}
-  {Attended talks on cellular senescence atlasing and organ-specific senescence signatures.}
+\expentry{NIH Consortium Annual Meetings}{'23, '25}
+  {IGVF, SenNet:Cellular Senescence Network, 4D Nucleome}{}
 
 \expentry{Grace Hopper Celebration}{Oct '24}
-  {AnitaB.org, Philadelphia}
-  {Talks and brainstorming sessions with tech-industry leaders.}
+  {AnitaB.org, Philadelphia}{}
 
 \expentry{Computational Genomics Summer Institute}{Jul '23}
-  {University of California, Los Angeles}
-  {Delivered the lightning talk ``Connecting 3D genomic organization to gene expression.''}
+  {University of California, Los Angeles}{}
 
 \expentry{Grad Cohort for Women}{April '23}
-  {Computing Research Association (CRA-WP), San Francisco}
-  {Mentoring sessions with women in CS across industry and academia.}
+  {Computing Research Association (CRA-WP), San Francisco}{}
 
 %% --- research experience ----------------------------------------------------
 \cvsection{Research Experience Prior to Thesis}%
 \expentry{Mapping the epigenetic landscape of single-cells using 3-D chromatin architecture}{'22 -- '24}
   {Supervisor -- Prof.\ Jian Ma, Computational Biology Department, SCS, CMU}
-  {Developed a framework to identify cis-regulatory 3-D genomic hubs controlling target-gene expression and key transcription factors in healthy and cancerous cell lines; implemented \textbf{hypergraph-based representation learning} for integrative analysis of 3D genome architecture in single-cell, multi-omic mouse-brain datasets.}
+  {Developed a framework to identify cis-regulatory 3-D genomic hubs controlling target-gene expression and key transcription factors in healthy and cancerous mouse-brain single-cell, multi-omic profiling.}
 
 \expentry{Translational Mechanobiology Lab, MBI, National University of Singapore}{'22}
   {Summer Internship $\mid$ Supervisor -- Prof.\ Hanry Yu, Dept.\ of Physiology, YLL School of Medicine}
-  {Built a \textbf{Generative-Adversarial-Network} (GAN) pipeline for colorectal-cancer imaging to support robust clinical deep-learning deployment; reviewed domain-adaptation and distribution-shift methods for liver-fibrosis staging from annotated medical images.}
+  {Built a Generative-Adversarial-Network (GAN) pipeline for colorectal-cancer imaging to support clinical deep-learning deployment}
 
 \expentry{Lab for Bone Biomechanics, Institute of Biomechanics, ETH Zurich}{'21}
-  {Summer Internship $\mid$ Supervisor -- Prof.\ Ralph Muller, Dept.\ of Health Sci\&Tech $\mid$ Presentation}
-  {Added a \textbf{Type-2 Diabetes} pathway to an agent-based \textbf{osteoporosis} model and ran large-scale simulations on the \textbf{CSCS Swiss National Supercomputing Center}; validated against in-vivo data from 235 diabetic patients and identified osteoid production as a key parameter via \textbf{sensitivity analysis}.}
+  {Summer Internship $\mid$ Supervisor -- Prof.\ Ralph Muller, Dept.\ of Health Sci\&Tech}
+  {Added a Type-2 Diabetes pathway to an agent-based osteoporosis model and ran large-scale simulations on the CSCS Swiss National Supercomputing Center}
 
 \expentry{Multicellular Systems Engineering Lab, University of Notre Dame}{'20}
-  {Summer Internship $\mid$ Supervisor -- Prof.\ Jeremiah Zartman, Chemical \& Biomolecular Engineering $\mid$ Poster}
-  {Built a morphometric feature-extraction pipeline for \emph{Drosophila} wing imaginal discs (OpenCV, Fiji) to study organism-wide signaling; evaluated variance under gene-knockout in the $Ca^{2+}$ signaling pathway using PCA features.}
+  {Summer Internship $\mid$ Supervisor -- Prof.\ Jeremiah Zartman, Chemical \& Biomolecular Engineering}
+  {Built a morphometric feature-extraction pipeline for \emph{Drosophila} wing imaginal discs (OpenCV, Fiji) to study organism-wide cell-signaling}
 
 %% --- coursework -------------------------------------------------------------
 \cvsection{Key Coursework}%
 \textbf{Machine Learning \& Statistics:} Intermediary Statistics (CMU: 36-705), Probabilistic Graphical Models (CMU: 10-708), Introduction to Machine Learning (CMU: 10-701)
 \par\addvspace{6.5pt}
 \expentry{Predicting genomic-hub mediated TF-perturbation response via geometric deep learning}{'23}
-  {10-708: Probabilistic Graphical Models $\mid$ Code Repo}
-  {Augmented the GEARS GNN for Perturb-seq response prediction with a Hi-C contact graph (K562 \textbf{cancer cell-line} Micro-C, 20\,kb bins mapped to gene TSSs), adding 3D-genome topology to the co-expression and Gene Ontology graph features.}
+  {10-708: Probabilistic Graphical Models}
+  {Augmented a GNN for Perturb-seq response prediction with a Hi-C contact graph (Cancer cell-line), adding 3D-genome topology to the co-expression and Gene Ontology graph features.}
 
 \expentry{Single-cell DNA methylation prediction using single-cell HiC data and Graph NNs}{'23}
-  {02-710: Computational Genomics $\mid$ Code Repo}
+  {02-710: Computational Genomics}
   {Developed a \textbf{GNN} to predict methylation from HiC data, connecting structure to phenotype; clustered \textbf{single-nucleus DNA methylation} data with K-means and t-SNE.}
 
 \expentry{Efficient Online Continual Semi-Supervised Learning}{'22}
