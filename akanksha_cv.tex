@@ -75,16 +75,24 @@
 
 \setlist[itemize]{leftmargin=1.3em, itemsep=0pt, parsep=1pt, topsep=2pt, partopsep=0pt}
 
-% Bullet list for experience-style entries (heading + points). Use it in place
-% of itemize right after an \entry. The spacing is STRUCTURAL, so cutting bullet
-% text can never reopen the gap bug:
-%   before=\nointerlineskip  cancels the variable baseline glue that \entry's
-%     \parbox[t] injects (1-line headings sat far from bullets, 2-line ones on
-%     top of them) -> heading always binds tightly, no marker needed.
-%   after=\addvspace{7pt}    gives an even separation before the next entry.
-\newlist{roleitems}{itemize}{1}
-\setlist[roleitems]{label=$\bullet$, leftmargin=1.3em, itemsep=1pt, parsep=0pt,
-  topsep=2pt, partopsep=0pt, before=\nointerlineskip, after=\addvspace{7pt}}
+% Deepak-Pathak-style experience entry (no bullets):
+%   \expentry{Bold title}{Date}{Italic subtitle}{Roman detail}
+% Title is bold (left) with the date flush-right on the SAME line; an italic
+% subtitle line sits beneath; then roman detail. All three live in one parbox,
+% so they are single-spaced with no inter-paragraph gaps -- exactly Deepak's
+% look. Pass {} for an absent subtitle or detail. The detail may contain \\ to
+% break into multiple lines. A trailing \addvspace separates successive entries;
+% because the gap is placed AFTER each entry, the first entry in a section still
+% hugs the margin label and there is no between-entries marker to delete.
+\newcommand{\expentry}[4]{%
+  \par
+  \parbox[t]{\dimexpr\linewidth-\cvdatew-\cvlabelsep\relax}{\raggedright
+    \textbf{#1}%
+    \ifx\relax#3\relax\else\\[1.5pt]\textsl{#3}\fi
+    \ifx\relax#4\relax\else\\[2pt]#4\fi}%
+  \hfill
+  \parbox[t]{\cvdatew}{\raggedleft\small\textsl{#2}}%
+  \par\addvspace{6.5pt}}
 
 % "Page X of Y" footer, mirroring the original CV.
 \pagestyle{fancy}\fancyhf{}
@@ -175,119 +183,84 @@ Comp-Bio Department, School of Computer Science $\mid$ GPA: 3.58/4}{'22 -- '24}
 
 %% --- leadership -------------------------------------------------------------
 \cvsection{Leadership \& Societal Contributions}%
-\entry{\textbf{Vice President} $\mid$ \emph{Allegheny Science Policy and Governance (ASPG)}}{Aug '25 -- Present}
-\begin{roleitems}
-  \item Leading a recognized chapter of the \textbf{National Science Policy Network}
-  \item Bridged scientists and PA legislators on \textbf{AI/data-center and aging policy} \\ by organizing discussions at the State Capitol, Harrisburg, PA
-\end{roleitems}
+\expentry{Vice President}{Aug '25 -- Present}
+  {Allegheny Science Policy and Governance (ASPG)}
+  {Leading a recognized chapter of the \textbf{National Science Policy Network}; bridged scientists and PA legislators on \textbf{AI/data-center and aging policy} at the State Capitol, Harrisburg.}
 
-\entry{\textbf{Teaching Assistant} $\mid$ \emph{02-760: Lab Methods for Computational Biologists, SCS, CMU}}{Fall '23 -- Spring '24}
-\begin{roleitems}
-  \item Taught a lecture on \textbf{genomics technologies} and gene regulation to a class of around 20 students
-\end{roleitems}
+\expentry{Teaching Assistant}{Fall '23 -- Spring '24}
+  {02-760: Lab Methods for Computational Biologists, SCS, CMU}
+  {Taught a lecture on \textbf{genomics technologies} and gene regulation to a class of $\sim$20 students.}
 
-\entry{\textbf{Coordinator} $\mid$ \emph{Technights, Carnegie Mellon University}, Robotics Institute}{Aug '23 -- Aug '25}
-\begin{roleitems}
-  \item Led a \textbf{computer-science outreach} program teaching middle-school girls technical sessions on data analysis, foundation models, and deep learning
-\end{roleitems}
+\expentry{Coordinator}{Aug '23 -- Aug '25}
+  {Technights, Carnegie Mellon University, Robotics Institute}
+  {Led a \textbf{computer-science outreach} program teaching middle-school girls data analysis, foundation models, and deep learning.}
 
-\entry{\textbf{Team Lead} $\mid$ \emph{4D Nucleome Consortium Hackathon}, Seattle, Washington}{Mar '24}
-\begin{roleitems}
-  \item Led a team of 5 during the hackathon to create integrative pipelines for \textbf{single-cell HiC} data analysis using deep-learning tools and publicly available cell-atlas scale datasets
-  \item Delivered a 30-minute presentation to showcase results to consortium researchers
-\end{roleitems}
+\expentry{Team Lead}{Mar '24}
+  {4D Nucleome Consortium Hackathon, Seattle, Washington}
+  {Led a team of 5 to build integrative pipelines for \textbf{single-cell HiC} analysis from cell-atlas-scale datasets; delivered a 30-minute presentation to consortium researchers.}
 
-\entry{\textbf{Treasurer} $\bullet$ \textbf{Senator} $\mid$ \emph{Graduate Student Association, (CPCB GSA)}}{Aug '23 -- Aug '25}
-\begin{roleitems}
-  \item Managed a budget of \textbf{\$5,121} and tracked spending spanning both CMU and UPitt GSA events
-  \item Organized the 2024 open-house event for visiting prospective students admitted to CPCB
-\end{roleitems}
+\expentry{Treasurer $\bullet$ Senator}{Aug '23 -- Aug '25}
+  {Graduate Student Association (CPCB GSA)}
+  {Managed a \textbf{\$5,121} budget across CMU and UPitt events; organized the 2024 open-house for admitted CPCB students.}
 
-\entry{\textbf{Editorial Board Member} $\bullet$ \textbf{Design Convenor} $\mid$ \emph{Insight, the student newsletter of IIT Bombay}}{'19 -- '21}
-\begin{roleitems}
-  \item Sketched \& Illustrated \textbf{1 Flagship} \& \textbf{1 Special Edition} \textbf{Magazine Cover}, and a merch t-shirt
-  \item Editorial Board member ('20-'21): contributed to editorial oversight and article curation
-\end{roleitems}
+\expentry{Editorial Board Member $\bullet$ Design Convenor}{'19 -- '21}
+  {Insight, the student newsletter of IIT Bombay}
+  {Sketched \& illustrated \textbf{1 Flagship} \& \textbf{1 Special Edition} magazine cover and a merch t-shirt; contributed editorial oversight and article curation.}
 
-\entry{\textbf{Convenor, Girls Swim Team} $\mid$ \emph{Aquatics, Indian Institute of Technology Bombay}}{'19 -- '20}
-\begin{roleitems}
-  \item Led logistics, training coordination, and community building events for the institute girls' team
-\end{roleitems}
+\expentry{Convenor, Girls Swim Team}{'19 -- '20}
+  {Aquatics, Indian Institute of Technology Bombay}
+  {Led logistics, training coordination, and community-building events for the institute girls' team.}
 
 %% --- consortiums ------------------------------------------------------------
 \cvsection{Consortiums \& Workshops}%
-\entry{\textbf{SenNet Consortium Annual Meeting} $\mid$ \textit{Cellular Senescence Network, NIH, Washington, DC}}{Sep '25}
-\begin{itemize}
-  \item Attended talks on cellular senescence atlasing and organ-specific senescence signatures
-\end{itemize}
+\expentry{SenNet Consortium Annual Meeting}{Sep '25}
+  {Cellular Senescence Network, NIH, Washington, DC}
+  {Attended talks on cellular senescence atlasing and organ-specific senescence signatures.}
 
-\entry{\textbf{Grace Hopper Celebration} $\mid$ \textit{AnitaB.org, Philadelphia}}{Oct '24}
-\begin{itemize}
-  \item Experienced talks and brainstorming sessions with tech industry leaders
-\end{itemize}
+\expentry{Grace Hopper Celebration}{Oct '24}
+  {AnitaB.org, Philadelphia}
+  {Talks and brainstorming sessions with tech-industry leaders.}
 
-\entry{\textbf{Computational Genomics Summer Institute} $\mid$ \textit{University of California, Los Angeles}}{Jul '23}
-\begin{itemize}
-  \item Delivered Lightning Talk: ``Connecting 3D genomic organization to gene expression''
-\end{itemize}
+\expentry{Computational Genomics Summer Institute}{Jul '23}
+  {University of California, Los Angeles}
+  {Delivered the lightning talk ``Connecting 3D genomic organization to gene expression.''}
 
-\entry{\textbf{Grad Cohort for Women} $\mid$ \textit{Computing Research Association (CRA-WP), San Francisco}}{April '23}
-\begin{itemize}
-  \item Participated in mentoring sessions from women in CS across industry and academia
-\end{itemize}
+\expentry{Grad Cohort for Women}{April '23}
+  {Computing Research Association (CRA-WP), San Francisco}
+  {Mentoring sessions with women in CS across industry and academia.}
 
 %% --- research experience ----------------------------------------------------
 \cvsection{Research Experience Prior to Thesis}%
-\textbf{Mapping the epigenetic landscape of single-cells using 3-D chromatin architecture}\dates{'22 -- '24}\\
-\textsl{Supervisor -- Prof.\ Jian Ma, Computational Biology Department, School of Computer Science, CMU}
-\begin{itemize}
-  \item Developed a framework to identify cis-regulatory, 3-D genomic hubs, controlling target-gene expression and key transcription factors in healthy and cancerous cell lines
-  \item Implemented \textbf{hypergraph-based representation learning} models for integrative analysis of 3D genome architecture in single-cell, multi-omic, mouse brain datasets
-\end{itemize}
+\expentry{Mapping the epigenetic landscape of single-cells using 3-D chromatin architecture}{'22 -- '24}
+  {Supervisor -- Prof.\ Jian Ma, Computational Biology Department, SCS, CMU}
+  {Developed a framework to identify cis-regulatory 3-D genomic hubs controlling target-gene expression and key transcription factors in healthy and cancerous cell lines; implemented \textbf{hypergraph-based representation learning} for integrative analysis of 3D genome architecture in single-cell, multi-omic mouse-brain datasets.}
 
-\textbf{Translational Mechanobiology Lab}, MBI, National University of Singapore\dates{'22}\\
-\textsl{Summer Internship $\mid$ Supervisor -- Prof.\ Hanry Yu, Dept.\ of Physiology, YLL School of Medicine}
-\begin{itemize}
-  \item Implemented a \textbf{Generative-Adversarial-Network} (GAN) pipeline for colorectal cancer imaging data to support robust deep-learning deployment in clinical environments
-  \item Reviewed domain adaptation and distribution-shift methods for liver fibrosis staging from annotated medical images
-\end{itemize}
+\expentry{Translational Mechanobiology Lab, MBI, National University of Singapore}{'22}
+  {Summer Internship $\mid$ Supervisor -- Prof.\ Hanry Yu, Dept.\ of Physiology, YLL School of Medicine}
+  {Built a \textbf{Generative-Adversarial-Network} (GAN) pipeline for colorectal-cancer imaging to support robust clinical deep-learning deployment; reviewed domain-adaptation and distribution-shift methods for liver-fibrosis staging from annotated medical images.}
 
-\textbf{Lab for Bone Biomechanics}, Institute of Biomechanics, ETH Zurich\dates{'21}\\
-\textsl{Summer Internship $\mid$ Supervisor -- Prof.\ Ralph Muller, Dept.\ of Health Sci\&Tech $\mid$ Presentation}
-\begin{itemize}
-  \item Added a \textbf{Type-2 Diabetes} pathway to an agent-based \textbf{osteoporosis} model and ran large-scale simulations on the \textbf{CSCS Swiss National Supercomputing Center Cluster}
-  \item Validated the model against in-vivo data from 235 diabetic patients and identified osteoid production as a key parameter via \textbf{sensitivity analysis}
-\end{itemize}
+\expentry{Lab for Bone Biomechanics, Institute of Biomechanics, ETH Zurich}{'21}
+  {Summer Internship $\mid$ Supervisor -- Prof.\ Ralph Muller, Dept.\ of Health Sci\&Tech $\mid$ Presentation}
+  {Added a \textbf{Type-2 Diabetes} pathway to an agent-based \textbf{osteoporosis} model and ran large-scale simulations on the \textbf{CSCS Swiss National Supercomputing Center}; validated against in-vivo data from 235 diabetic patients and identified osteoid production as a key parameter via \textbf{sensitivity analysis}.}
 
-\textbf{Multicellular Systems Engineering Lab}, University of Notre Dame\dates{'20}\\
-\textsl{Summer Internship $\mid$ Supervisor -- Prof.\ Jeremiah Zartman, Chemical \& Biomolecular Engineering $\mid$ Poster}
-\begin{itemize}
-  \item Built a morphometric feature-extraction pipeline for \emph{Drosophila} wing imaginal discs using OpenCV and Fiji to understand organism-wide signaling patterns
-  \item Evaluated variance under gene-knockout in the $Ca^{2+}$ signaling pathway using PCA-features
-\end{itemize}
+\expentry{Multicellular Systems Engineering Lab, University of Notre Dame}{'20}
+  {Summer Internship $\mid$ Supervisor -- Prof.\ Jeremiah Zartman, Chemical \& Biomolecular Engineering $\mid$ Poster}
+  {Built a morphometric feature-extraction pipeline for \emph{Drosophila} wing imaginal discs (OpenCV, Fiji) to study organism-wide signaling; evaluated variance under gene-knockout in the $Ca^{2+}$ signaling pathway using PCA features.}
 
 %% --- coursework -------------------------------------------------------------
 \cvsection{Key Coursework}%
 \textbf{Machine Learning \& Statistics:} Intermediary Statistics (CMU: 36-705), Probabilistic Graphical Models (CMU: 10-708), Introduction to Machine Learning (CMU: 10-701)
+\par\addvspace{6.5pt}
+\expentry{Predicting genomic-hub mediated TF-perturbation response via geometric deep learning}{'23}
+  {10-708: Probabilistic Graphical Models $\mid$ Code Repo}
+  {Augmented the GEARS GNN for Perturb-seq response prediction with a Hi-C contact graph (K562 \textbf{cancer cell-line} Micro-C, 20\,kb bins mapped to gene TSSs), adding 3D-genome topology to the co-expression and Gene Ontology graph features.}
 
-\textbf{Predicting genomic-hub mediated TF-perturbation response via geometric deep learning}\dates{'23}\\
-\textsl{10-708: Probabilistic Graphical Models $\mid$ Code Repo}
-\begin{itemize}
-  \item Augmented the GEARS GNN for Perturb-seq response prediction with a Hi-C contact graph (K562 \textbf{cancer cell-line} Micro-C bulk-seq dataset, 20kb (base-pair) bins mapped to gene TSSs), adding 3D-genome topology to the existing co-expression and Gene Ontology graph features
-\end{itemize}
+\expentry{Single-cell DNA methylation prediction using single-cell HiC data and Graph NNs}{'23}
+  {02-710: Computational Genomics $\mid$ Code Repo}
+  {Developed a \textbf{GNN} to predict methylation from HiC data, connecting structure to phenotype; clustered \textbf{single-nucleus DNA methylation} data with K-means and t-SNE.}
 
-\textbf{Single-cell DNA methylation prediction using single-cell HiC data and Graph NNs}\dates{'23}\\
-\textsl{02-710: Computational Genomics $\mid$ Code Repo}
-\begin{itemize}
-  \item Developed a \textbf{GNN} to predict methylation from HiC data, connecting structure-to-phenotype
-  \item Performed clustering with K-means and t-SNE on \textbf{single-nucleus DNA methylation} data
-\end{itemize}
-
-\textbf{Efficient Online Continual Semi-Supervised Learning}\dates{'22}\\
-\textsl{10-701: Intro to ML}
-\begin{itemize}
-  \item Improved semi-supervised OCL-PDS with active learning and optimized pseudo-labeling
-  \item In the Amazon-WPDS dataset, our approach outperformed the ER-FIFO method
-\end{itemize}
+\expentry{Efficient Online Continual Semi-Supervised Learning}{'22}
+  {10-701: Intro to ML}
+  {Improved semi-supervised OCL-PDS with active learning and optimized pseudo-labeling; outperformed the ER-FIFO method on the Amazon-WPDS dataset.}
 
 \end{document}
