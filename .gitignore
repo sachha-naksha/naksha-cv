@@ -1,0 +1,19 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+
+# watch/render logs
+watch.log
+
+# Personal Claude Code settings (machine-specific paths)
+.claude/settings.local.json
+
+# Reference material (not part of this CV)
+CV_Pathak.pdf

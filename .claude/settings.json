@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(jq -r '.tool_input.file_path // empty'); [ -n \"$f\" ] || exit 0; case \"$f\" in *.tex) ;; *) exit 0;; esac; d=$(dirname \"$f\"); b=$(basename \"$f\"); if out=$(cd \"$d\" && latexmk -pdf -interaction=nonstopmode -halt-on-error \"$b\" 2>&1); then jq -nc --arg m \"LaTeX: rendered ${b%.tex}.pdf\" '{systemMessage:$m}'; else err=$(printf '%s' \"$out\" | grep -m1 -A2 \"^!\" | tr \"\\n\" \" \" | cut -c1-300); jq -nc --arg m \"LaTeX render FAILED for $b: $err\" '{systemMessage:$m}'; fi",
+            "timeout": 120,
+            "statusMessage": "Rendering LaTeX → PDF"
+          }
+        ]
+      }
+    ]
+  }
+}
