@@ -57,7 +57,7 @@
 % a huge gap before the content when the heading itself is short. Zero depth lets
 % the content flow normally beside the label, which simply extends into the margin.
 \newcommand{\cvsection}[1]{%
-  \par\addvspace{1ex}\needspace{3\baselineskip}%
+  \par\addvspace{\baselineskip}\needspace{3\baselineskip}%
   \noindent\llap{\raisebox{0pt}[\height][0pt]{%
     \parbox[t]{\cvlabelw}{\raggedright\normalfont\scshape\bfseries
       \textcolor{sectionpurple}{#1}}}\hspace{\cvlabelsep}}%
@@ -186,46 +186,61 @@ Comp-Bio Department, School of Computer Science $\mid$ GPA: 3.58/4}{'22 -- '24}
 %% --- leadership -------------------------------------------------------------
 \cvsection{Leadership \& Societal Contributions}%
 \expentry{Vice President}{Aug '25 -- Present}
-  {Allegheny Science Policy and Governance (ASPG)}
+  {\href{https://aspgpitt.wordpress.com/}{Allegheny Science Policy and Governance (ASPG)}}
   {Leading a recognized chapter of the \textbf{National Science Policy Network} Bridged scientists and PA legislators on policies about \textbf{AI/data-centers and Aging} at the State Capitol, Harrisburg, PA}
 
-\expentry{Technights Coordinator}{Aug '23 -- Aug '25}
+\expentry{\href{https://roboticsed.ri.cmu.edu/resources/technights-2/}{Technights} Coordinator}{Aug '23 -- Aug '25}
   {Carnegie Mellon University, Robotics Institute}
   {Organized and led a \textbf{computer-science outreach} program teaching middle-school girls sessions on foundation models, and deep learning.}
 
 \expentry{NIH Consortium Hackathon, Co-organizer \& Team Lead}{Mar '24}
-  {4D Nucleome, Seattle, Washington}
+  {\href{https://hack4dnucleome.github.io/}{4D Nucleome}, Seattle, Washington}
   {Led a team of 5 to build integrative pipelines for single-cell HiC analysis from cell-atlas-scale datasets}
 
 \expentry{Reviewer}{}%
-  {ICML Foundation Model for Life Sciences Workshop 2026, PNAS Journal (assisted PI), Aging Cell Journal (assisted PI)}{}
+  {\href{https://icml2026fm4ls.github.io/index.html}{ICML Foundation Model for Life Sciences Workshop 2026}, \href{https://www.pnas.org/}{PNAS Journal} (assisted PI), \href{https://onlinelibrary.wiley.com/journal/14749726}{Aging Cell Journal} (assisted PI)}{}
 
 \expentry{Teaching Assistant}{Fall '23 -- Spring '24}
   {02-760: Lab Methods for Computational Biologists, SCS, CMU}
   {Taught a lecture on \textbf{genomics technologies} to a class of $\sim$20 students, revamping the RNA sequencing module of the course.}
 
 \expentry{Treasurer $\bullet$ Senator}{Aug '23 -- Aug '25}
-  {Graduate Student Association (Joint CMU-UPitt Comp-Bio PhD Program)}
+  {\href{https://cpcb-gsa.github.io/}{Graduate Student Association} (Joint CMU-UPitt Comp-Bio PhD Program)}
 
 \expentry{Editorial Board Member $\bullet$ Design Convenor}{'19 -- '21}
-  {Insight, the student newsletter of IIT Bombay}
+  {\href{https://insightiitb.org/}{Insight}, the student newsletter of IIT Bombay}
 
 \expentry{Convenor, Girls Swim Team}{'19 -- '20}
   {Aquatics, Indian Institute of Technology Bombay}
 
 %% --- consortiums ------------------------------------------------------------
 \cvsection{Consortiums \& Workshops}%
+% Tight variant: these entries are title+subtitle only (no detail), so the
+% 5pt inter-entry gap reads as too airy. Locally trim it and drop parskip.
+{\setlength{\parskip}{0pt}%
+\renewcommand{\expentry}[4]{%
+  \parbox[t]{\dimexpr\linewidth-\cvdatew-\cvlabelsep\relax}{\raggedright
+    \textbf{#1}%
+    \ifx\relax#3\relax\else\\[1.5pt]\textsl{#3}\fi
+    \ifx\relax#4\relax\else\\[2pt]#4\fi}%
+  \hfill
+  \parbox[t]{\cvdatew}{\raggedleft\small\textsl{#2}}%
+  \par\addvspace{1.5pt}}%
 \expentry{NIH Consortium Annual Meetings}{'23, '25}
   {IGVF, SenNet:Cellular Senescence Network, 4D Nucleome}{}
-
 \expentry{Grace Hopper Celebration}{Oct '24}
   {AnitaB.org, Philadelphia}{}
-
 \expentry{Computational Genomics Summer Institute}{Jul '23}
   {University of California, Los Angeles}{}
-
 \expentry{Grad Cohort for Women}{April '23}
-  {Computing Research Association (CRA-WP), San Francisco}{}
+  {Computing Research Association (CRA-WP), San Francisco}{}%
+}% end tight-spacing group for Consortiums
+
+%% --- compute grants ---------------------------------------------------------
+\cvsection{Compute Allocation Grants}%
+{\setlength{\cvdatew}{0.6in}% grant dates are short years -> narrower date column
+\entry{\href{https://allocations.access-ci.org/}{\textbf{ACCESS}} (NSF Advanced Cyberinfrastructure Coordination Ecosystem: Services \& Support) \textbf{1.5M} credits on the \href{https://www.ncsa.illinois.edu/resources-and-services/compute-resources/delta/}{NCSA Delta} GPU supercomputer}{'26}
+}% end narrowed-date-column group
 
 %% --- research experience ----------------------------------------------------
 \cvsection{Research Experience Prior to Thesis}%
@@ -256,10 +271,4 @@ Comp-Bio Department, School of Computer Science $\mid$ GPA: 3.58/4}{'22 -- '24}
 \expentry{Single-cell DNA methylation prediction using single-cell HiC data and Graph NNs}{'23}
   {02-710: Computational Genomics}
   {Developed a \textbf{GNN} to predict methylation from HiC data, connecting structure to phenotype; clustered \textbf{single-nucleus DNA methylation} data with K-means and t-SNE.}
-
-%% --- compute grants ---------------------------------------------------------
-\cvsection{Compute Allocation Grants}%
-{\setlength{\cvdatew}{0.6in}% grant dates are short years -> narrower date column
-\entry{\href{https://allocations.access-ci.org/}{\textbf{ACCESS}} (NSF Advanced Cyberinfrastructure Coordination Ecosystem: Services \& Support) allocation on the \href{https://www.ncsa.illinois.edu/resources-and-services/compute-resources/delta/}{NCSA Delta} GPU supercomputer}{'26}
-}% end narrowed-date-column group
 \end{document}
