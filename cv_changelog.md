@@ -2,6 +2,13 @@
 
 Running log of updates to `akanksha_cv.tex`.
 
+## 2026-10-21
+
+- **Contact header**: Tagline changed from "Machine learning for Genomics & Epigenetics" to "Machine learning for Epigenetics".
+- **Education**: UPitt PhD advisor line now lists Dr. Jishnu Das only.
+- **Invited Talks**: FOCAL talk retitled to "Interpretable machine learning coupled to gene regulatory networks uncovers subcircuits underlying cell fate decisions", now linked to the bioRxiv preprint (was "paper-in-prep").
+- **Invited Talks**: Aging talk retitled to "Sex-dimorphic DNA lesion accumulation drives a PDK4 metabolic checkpoint in skeletal muscle"; status now "in-review at Nature Aging" (was "submitted to Nature Aging").
+
 ## 2026-05-29
 
 - **Setup**: Reconstructed `akanksha_cv.tex` (moderncv banking, purple) from `CV_Apr_2026.pdf` — the original `.tex` source was lost, so this file is the new source of truth.
