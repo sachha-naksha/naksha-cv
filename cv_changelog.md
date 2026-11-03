@@ -2,6 +2,14 @@
 
 Running log of updates to `akanksha_cv.tex`.
 
+## 2026-11-03
+
+- **Contact header**: Replaced the joint CMU-Pitt program description with PhD Candidate in Computational Biology at the University of Pittsburgh School of Medicine; retained the Aging Institute and Department of Immunology affiliations and Pitt academic email.
+- **Research focus**: Updated to machine learning for dynamic gene regulation and cellular reprogramming, matching the current Pitt research description on LinkedIn.
+- **Education**: Added the School of Medicine to the Pitt entry and expected completion in 2027. Kept CMU as prior doctoral study (2022-2024) and updated its school name to Kenneth C. Griffin School of Computer Science.
+- **Leadership**: Clarified ASPG President (June 2026-present) and prior Vice President (July 2025-June 2026); updated the advocacy description to AI safety and biosecurity.
+- **Sources**: [LinkedIn education](https://www.linkedin.com/in/akanksha-sachan/details/education/) and [profile/experience](https://www.linkedin.com/in/akanksha-sachan/), reviewed November 3, 2026.
+
 ## 2026-10-21
 
 - **Contact header**: Tagline changed from "Machine learning for Genomics & Epigenetics" to "Machine learning for Epigenetics".
