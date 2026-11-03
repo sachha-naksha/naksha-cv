@@ -6,7 +6,7 @@ Running log of updates to `akanksha_cv.tex`.
 
 - **Contact header**: Identifies the PhD in Computational Biology as the joint Carnegie Mellon-University of Pittsburgh program, with Aging Institute and Immunology affiliations at Pitt School of Medicine and the Pitt academic email.
 - **Research focus**: Tagline set to "Machine Learning for Epigenetic reprogramming", using Akanksha's requested wording and capitalization.
-- **Education**: Presents one joint CMU-Pitt PhD (2022-present; expected completion 2027), with CMU (2022-2024) and Pitt School of Medicine (2024-present) as institutional phases within that program. Includes the Kenneth C. Griffin School of Computer Science name.
+- **Education**: Retains separate Pitt School of Medicine (2024-present; expected completion 2027) and CMU (2022-2024) entries, as requested. Includes the Kenneth C. Griffin School of Computer Science name; the contact header identifies the PhD as the joint CMU-Pitt program.
 - **Leadership**: Clarified ASPG President (June 2026-present) and prior Vice President (July 2025-June 2026); updated the advocacy description to AI safety and biosecurity.
 - **Sources**: [LinkedIn education](https://www.linkedin.com/in/akanksha-sachan/details/education/) and [profile/experience](https://www.linkedin.com/in/akanksha-sachan/), reviewed November 3, 2026. The joint-program interpretation follows Akanksha's explicit clarification; the separate LinkedIn entries do not represent separate PhDs.
 
