@@ -11,7 +11,7 @@ Running log of updates to `akanksha_cv.tex`.
 - **NeurIPS award**: Added a vertical separator after "Student A100 track".
 - **Invited talks**: Added National Institutes of Health (NIH) IGVF Consortium Annual Meeting (September 2026) at the top of the interpretable machine learning/GRN talk's venue list and removed the joint CMU-Pitt orientation retreat entry.
 - **Education**: Retains separate Pitt School of Medicine (2024-present; expected completion 2027) and CMU (2022-2024) entries, as requested. The CMU entry begins with bold "CMU, Kenneth C. Griffin School of Computer Science" and places "Computational Biology Department" beside the GPA. The contact header identifies the PhD as the joint CMU-Pitt program.
-- **Leadership**: Clarified ASPG President (June 2026-present) and prior Vice President (July 2025-June 2026). Describes bridging the gap between scientists and Pennsylvania legislators through interactions at the State Capitol; removed the recognized-chapter wording.
+- **Leadership**: Clarified ASPG President (June 2026-present) and prior Vice President (July 2025-June 2026). Describes bridging the gap between scientists and Pennsylvania legislators through interactions at the State Capitol, with advocacy for AI safety and biosecurity policy; removed the recognized-chapter wording.
 - **Sources**: [LinkedIn education](https://www.linkedin.com/in/akanksha-sachan/details/education/) and [profile/experience](https://www.linkedin.com/in/akanksha-sachan/), reviewed November 3, 2026. The joint-program interpretation follows Akanksha's explicit clarification; the separate LinkedIn entries do not represent separate PhDs.
 
 ## 2026-10-21
