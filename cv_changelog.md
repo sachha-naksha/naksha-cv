@@ -7,7 +7,7 @@ Running log of updates to `akanksha_cv.tex`.
 - **Contact header**: Identifies the PhD in Computational Biology as the joint Carnegie Mellon-University of Pittsburgh program with the Pitt academic email. Removed the Aging Institute and Department of Immunology affiliations from Contact as requested.
 - **Research focus**: Tagline set to "Machine Learning for Epigenetic reprogramming", using Akanksha's requested wording and capitalization.
 - **Awards**: Shortened the MCM scholarship entry to end at "by IIT Bombay", removing the duration and financial-hardship wording.
-- **Hackathon award**: Replaced the dollar-prize label with bold "Winning Hackathon" and changed the team wording to "team of three".
+- **Hackathon award**: Uses bold "1st Place, Accessibility Track" followed by "Pitt Challenge Hackathon | team of 3", per Akanksha's requested wording.
 - **Education**: Retains separate Pitt School of Medicine (2024-present; expected completion 2027) and CMU (2022-2024) entries, as requested. Includes the Kenneth C. Griffin School of Computer Science name; the contact header identifies the PhD as the joint CMU-Pitt program.
 - **Leadership**: Clarified ASPG President (June 2026-present) and prior Vice President (July 2025-June 2026); updated the advocacy description to AI safety and biosecurity.
 - **Sources**: [LinkedIn education](https://www.linkedin.com/in/akanksha-sachan/details/education/) and [profile/experience](https://www.linkedin.com/in/akanksha-sachan/), reviewed November 3, 2026. The joint-program interpretation follows Akanksha's explicit clarification; the separate LinkedIn entries do not represent separate PhDs.
